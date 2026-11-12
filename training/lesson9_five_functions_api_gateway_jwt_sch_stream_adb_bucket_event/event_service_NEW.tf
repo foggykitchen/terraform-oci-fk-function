@@ -1,5 +1,5 @@
 module "fk_event_bucket_bulkload" {
-  source = "git::https://github.com/foggykitchen/terraform-oci-fk-event.git?ref=v0.1.0"
+  source = "git::https://github.com/foggykitchen/terraform-oci-fk-event.git?ref=v0.2.0" # TODO: tag not yet released
 
   name             = "fk-fn-lesson9-bucket-event"
   compartment_ocid = var.compartment_ocid
