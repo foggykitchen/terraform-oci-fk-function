@@ -1,5 +1,5 @@
 module "oci-fk-adb" {
-  source                                = "git::https://github.com/foggykitchen/terraform-oci-fk-adb.git?ref=v1.4"
+  source                                = "git::https://github.com/foggykitchen/terraform-oci-fk-adb.git?ref=v2.0.0" # TODO: tag not yet released
   adb_database_db_name                  = var.adb_database_db_name
   adb_database_display_name             = var.adb_database_db_name
   adb_password                          = var.adb_admin_password

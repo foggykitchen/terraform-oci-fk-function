@@ -1,5 +1,5 @@
 module "fk_sch" {
-  source = "git::https://github.com/foggykitchen/terraform-oci-fk-sch.git?ref=main"
+  source = "git::https://github.com/foggykitchen/terraform-oci-fk-sch.git?ref=v0.2.0" # TODO: tag not yet released
 
   name             = "fk-fn-lesson7-sch"
   compartment_ocid = var.compartment_ocid

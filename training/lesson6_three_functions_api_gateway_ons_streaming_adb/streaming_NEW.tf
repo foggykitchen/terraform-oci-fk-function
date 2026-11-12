@@ -1,5 +1,5 @@
 module "fk_streaming" {
-  source = "git::https://github.com/foggykitchen/terraform-oci-fk-streaming.git?ref=v0.1.0"
+  source = "git::https://github.com/foggykitchen/terraform-oci-fk-streaming.git?ref=v0.2.0" # TODO: tag not yet released
 
   compartment_ocid = var.compartment_ocid
   name             = "fk-fn-lesson6-streaming"

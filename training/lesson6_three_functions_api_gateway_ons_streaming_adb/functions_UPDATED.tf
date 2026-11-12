@@ -1,5 +1,5 @@
 module "oci-fk-initiator-function" {
-  source                   = "git::https://github.com/foggykitchen/terraform-oci-fk-function.git"
+  source                   = "../.."
   tenancy_ocid             = var.tenancy_ocid
   region                   = var.region
   ocir_user_name           = var.ocir_user_name
@@ -26,7 +26,7 @@ module "oci-fk-initiator-function" {
 }
 
 module "oci-fk-collector-function" {
-  source                   = "git::https://github.com/foggykitchen/terraform-oci-fk-function.git"
+  source                   = "../.."
   tenancy_ocid             = var.tenancy_ocid
   region                   = var.region
   ocir_user_name           = var.ocir_user_name
@@ -41,13 +41,13 @@ module "oci-fk-collector-function" {
   extra_files = {
     "adb_wallet.b64" = module.oci-fk-adb.adb_database.adb_wallet_content
   }
-  invoke_fn                = false
-  use_oci_logging          = false
-  use_my_fn_app            = true
-  my_fn_app_ocid           = module.oci-fk-initiator-function.oci_app_fn.fn_app_ocid
-  use_my_fn_network        = true
-  my_fn_subnet_ocid        = module.fk_vcn.subnet_ids["functions_private"]
-  fn_timeout_in_seconds    = 300
+  invoke_fn             = false
+  use_oci_logging       = false
+  use_my_fn_app         = true
+  my_fn_app_ocid        = module.oci-fk-initiator-function.oci_app_fn.fn_app_ocid
+  use_my_fn_network     = true
+  my_fn_subnet_ocid     = module.fk_vcn.subnet_ids["functions_private"]
+  fn_timeout_in_seconds = 300
   fn_config = {
     DEBUG_MODE            = tostring(var.fn_debug_mode)
     STREAM_OCID           = module.fk_streaming.stream_ids["iot_data"]
@@ -66,7 +66,7 @@ module "oci-fk-collector-function" {
 }
 
 module "oci-fk-adb-setup-function" {
-  source                   = "git::https://github.com/foggykitchen/terraform-oci-fk-function.git"
+  source                   = "../.."
   tenancy_ocid             = var.tenancy_ocid
   region                   = var.region
   ocir_user_name           = var.ocir_user_name
@@ -81,13 +81,13 @@ module "oci-fk-adb-setup-function" {
   extra_files = {
     "adb_wallet.b64" = module.oci-fk-adb.adb_database.adb_wallet_content
   }
-  invoke_fn                = true
-  use_oci_logging          = false
-  use_my_fn_app            = true
-  my_fn_app_ocid           = module.oci-fk-initiator-function.oci_app_fn.fn_app_ocid
-  use_my_fn_network        = true
-  my_fn_subnet_ocid        = module.fk_vcn.subnet_ids["functions_private"]
-  fn_timeout_in_seconds    = 300
+  invoke_fn             = true
+  use_oci_logging       = false
+  use_my_fn_app         = true
+  my_fn_app_ocid        = module.oci-fk-initiator-function.oci_app_fn.fn_app_ocid
+  use_my_fn_network     = true
+  my_fn_subnet_ocid     = module.fk_vcn.subnet_ids["functions_private"]
+  fn_timeout_in_seconds = 300
   fn_config = {
     DEBUG_MODE            = tostring(var.fn_debug_mode)
     ADB_OCID              = module.oci-fk-adb.adb_database.adb_database_id
