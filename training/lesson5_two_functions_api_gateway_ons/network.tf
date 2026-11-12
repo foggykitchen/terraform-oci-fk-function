@@ -1,5 +1,5 @@
 module "fk_vcn" {
-  source = "../../../terraform-oci-fk-vcn"
+  source = "git::https://github.com/foggykitchen/terraform-oci-fk-vcn.git?ref=v0.2.1"
 
   compartment_ocid = var.compartment_ocid
   name             = "fk-fn-lesson5-vcn"
