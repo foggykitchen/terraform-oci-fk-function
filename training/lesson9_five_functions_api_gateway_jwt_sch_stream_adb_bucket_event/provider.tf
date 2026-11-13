@@ -4,7 +4,7 @@ terraform {
   required_providers {
     local = {
       source  = "hashicorp/local"
-      version = ">= 2.5.1"
+      version = ">= 2.5.0, < 3.0.0"
     }
     oci = {
       source  = "oracle/oci"
